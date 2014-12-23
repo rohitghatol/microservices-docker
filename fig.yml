@@ -1,0 +1,16 @@
+security:
+  build: security
+  ports:
+   - "8081:8081"
+  links:
+   - orientdb
+
+
+orientdb:
+  image: devhead/orientdb-1.7.8
+  volumes:
+   - orientdb/config:/opt/orientdb/config
+   - orientdb/db:/opt/orientdb/databases
+  ports:
+    - "2424:2424"
+    - "2480:2480"
